@@ -8,4 +8,3 @@ then
    cru a OpenVPNClientWatchdog "* * * * * /jffs/scripts/openvpn-client-watchdog"
    logger -t "${LOG_TAG}" -p 2 "Added OpenVPN client watchdog to cron utility."
 fi
-
