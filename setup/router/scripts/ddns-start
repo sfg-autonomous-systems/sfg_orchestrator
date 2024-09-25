@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Try to update.
+RESULT="$(curl "https://www.duckdns.org/update?domains=hse-sfg&token=2a6e7020-61e2-48e2-942e-8e5b0cc4b0e1&ip=")"
+
+if [ "$RESULT" = "OK" ]; then
+    /sbin/ddns_custom_updated 1
+else
+    /sbin/ddns_custom_updated 0
+fi

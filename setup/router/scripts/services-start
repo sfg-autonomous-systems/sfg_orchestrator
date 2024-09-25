@@ -1,0 +1,11 @@
+#!/bin/sh
+
+LOG_TAG="Services Start Script"
+
+# Add cron entry for OpenVPN Client watchdog.
+if [ -z "$(cru l | grep OpenVPNClientWatchdog)" ]
+then
+   cru a OpenVPNClientWatchdog "* * * * * /jffs/scripts/openvpn-client-watchdog"
+   logger -t "${LOG_TAG}" -p 2 "Added OpenVPN client watchdog to cron utility."
+fi
+
