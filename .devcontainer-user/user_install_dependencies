@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
+sudo apt update && sudo apt install -y --no-install-recommends \
+    libcanberra-gtk-module \
+    libcanberra-gtk3-module \
+    ros-${ROS_DISTRO}-rqt-robot-monitor
+
 # Isaac ROS packages
 sudo apt update && sudo apt install -y --no-install-recommends \
+    ros-${ROS_DISTRO}-isaac-ros-h264-decoder \
     ros-${ROS_DISTRO}-isaac-ros-h264-decoder \
     ros-${ROS_DISTRO}-isaac-ros-examples
