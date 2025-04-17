@@ -11,13 +11,13 @@ global_namespace = "/global/" + socket.gethostname().replace("-", "_")
 
 
 def generate_launch_description():
-    status_provider_node = Node(
+    agent_status_provider_node = Node(
         package="sfg_agent",
-        executable="status_provider",
+        executable="agent_status_provider",
         namespace=local_namespace,
-        name="status_provider",
+        name="agent_status_provider",
         parameters=[
-            package_directory / "config" / "status_provider.yaml",
+            package_directory / "config" / "agent_status_provider.yaml",
             {
                 "metadata_filepath": str(
                     package_directory / "config" / "agent_metadata.yaml"
@@ -27,4 +27,4 @@ def generate_launch_description():
         output="screen",
     )
 
-    return launch.LaunchDescription([status_provider_node])
+    return launch.LaunchDescription([agent_status_provider_node])
