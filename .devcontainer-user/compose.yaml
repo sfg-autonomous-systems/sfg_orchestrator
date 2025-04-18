@@ -1,3 +1,5 @@
+name: experimental_area
+
 include:
   - path:
       - "../.devcontainer/compose/compose.base.yaml"
