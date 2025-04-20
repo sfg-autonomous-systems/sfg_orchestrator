@@ -4,10 +4,12 @@ from pathlib import Path
 import launch
 from ament_index_python.packages import get_package_share_directory
 from launch_ros.actions import Node
+from sfg_utils import sanitize_hostname
 
 package_directory = Path(get_package_share_directory("sfg_experimental_area"))
-local_namespace = "/local/" + socket.gethostname().replace("-", "_")
-global_namespace = "/global/" + socket.gethostname().replace("-", "_")
+sanitized_hostname = sanitize_hostname(socket.gethostname())
+local_namespace = "/local/" + sanitized_hostname
+global_namespace = "/global/" + sanitized_hostname
 
 
 def generate_launch_description():
@@ -18,11 +20,6 @@ def generate_launch_description():
         name="agent_status_provider",
         parameters=[
             package_directory / "config" / "agent_status_provider.yaml",
-            {
-                "metadata_filepath": str(
-                    package_directory / "config" / "agent_metadata.yaml"
-                )
-            },
         ],
         output="screen",
     )
