@@ -1,0 +1,4 @@
+/**:
+  ros__parameters:
+    hostname: "sfg-go2-01"
+    keepalive: 3
