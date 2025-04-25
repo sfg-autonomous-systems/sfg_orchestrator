@@ -1,4 +1,4 @@
 /**:
   ros__parameters:
-    hostname: "sfg-go2-01"
+    hostname_regex: "sfg-go2-01"
     keepalive: 3
