@@ -31,6 +31,15 @@ def generate_launch_description():
             ),
             ComposableNode(
                 package="sfg_agent",
+                plugin="sfg_agent::AgentDiscoverer",
+                namespace=local_namespace,
+                parameters=[
+                    package_directory / "config" / "agent_discoverer.yaml",
+                ],
+                extra_arguments=[{"use_intra_process_comms": True}],
+            ),
+            ComposableNode(
+                package="sfg_agent",
                 plugin="sfg_agent::AgentDecoder",
                 namespace=local_namespace,
                 parameters=[
