@@ -9,7 +9,7 @@ from sfg_utils import sanitize_hostname
 
 package_directory = Path(get_package_share_directory("sfg_experimental_area"))
 sanitized_hostname = sanitize_hostname(socket.gethostname())
-local_namespace = "/local/" + sanitized_hostname
+local_namespace = "/local/"
 global_namespace = "/global/" + sanitized_hostname
 
 
