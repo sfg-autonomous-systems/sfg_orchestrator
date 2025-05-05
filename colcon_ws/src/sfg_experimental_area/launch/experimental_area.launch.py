@@ -1,15 +1,14 @@
-import socket
 from pathlib import Path
 
 import launch
 from ament_index_python.packages import get_package_share_directory
 from launch_ros.actions import ComposableNodeContainer
 from launch_ros.descriptions import ComposableNode
-from sfg_utils import sanitize_hostname
+from sfg_utils import get_hostname, sanitize_hostname
 
 package_directory = Path(get_package_share_directory("sfg_experimental_area"))
-sanitized_hostname = sanitize_hostname(socket.gethostname())
-local_namespace = "/local/"
+sanitized_hostname = sanitize_hostname(get_hostname())
+local_namespace = "/local"
 global_namespace = "/global/" + sanitized_hostname
 
 
@@ -36,7 +35,6 @@ def generate_launch_description():
                 parameters=[
                     package_directory / "config" / "agent_discoverer.yaml",
                 ],
-                extra_arguments=[{"use_intra_process_comms": True}],
             ),
             ComposableNode(
                 package="sfg_agent",
@@ -49,7 +47,6 @@ def generate_launch_description():
                         + "/experimental_area_container"
                     },
                 ],
-                extra_arguments=[{"use_intra_process_comms": True}],
             ),
         ),
         output="screen",
