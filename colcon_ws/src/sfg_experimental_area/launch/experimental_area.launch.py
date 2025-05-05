@@ -4,12 +4,12 @@ import launch
 from ament_index_python.packages import get_package_share_directory
 from launch_ros.actions import ComposableNodeContainer
 from launch_ros.descriptions import ComposableNode
-from sfg_utils import get_hostname, sanitize_hostname
+from sfg_utils import get_agent_name, sanitize_agent_name
 
 package_directory = Path(get_package_share_directory("sfg_experimental_area"))
-sanitized_hostname = sanitize_hostname(get_hostname())
+sanitized_agent_name = sanitize_agent_name(get_agent_name())
 local_namespace = "/local"
-global_namespace = "/global/" + sanitized_hostname
+global_namespace = "/global/" + sanitized_agent_name
 
 
 def generate_launch_description():
@@ -23,9 +23,6 @@ def generate_launch_description():
                 package="sfg_agent",
                 plugin="sfg_agent::AgentStatusProvider",
                 namespace=local_namespace,
-                parameters=[
-                    package_directory / "config" / "agent_status_provider.yaml",
-                ],
                 extra_arguments=[{"use_intra_process_comms": True}],
             ),
             ComposableNode(
