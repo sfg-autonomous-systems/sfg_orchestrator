@@ -2,5 +2,6 @@ name: experimental_area
 
 include:
   - path:
-      - "../.devcontainer/compose/compose.base.yaml"
-      - "../.devcontainer/compose/compose.${PLATFORM}.yaml"
+      - "../.devcontainer/compose/compose.isaac_ros.base.yaml"
+      - "../.devcontainer/compose/compose.isaac_ros.${PLATFORM}.yaml"
+      - "../.devcontainer/compose/compose.fast_dds_router.yaml"
