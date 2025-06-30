@@ -1,8 +1,0 @@
-#!/bin/sh
-
-LOG_TAG="OpenVPN Client Watchdog"
-
-for i in 1; do
-    [ -z "$(pidof vpnclient${i})" ] || continue
-    service restart_vpnclient${i}
-done
