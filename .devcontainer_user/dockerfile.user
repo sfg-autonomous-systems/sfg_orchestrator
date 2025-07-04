@@ -7,4 +7,3 @@ RUN --mount=type=cache,id=apt_cache_devcontainer,target="/var/cache/apt" \
         ros-${ROS_DISTRO}-rqt-robot-monitor \
         ros-${ROS_DISTRO}-isaac-ros-h264-decoder && \
     sudo apt -y autoremove && sudo apt clean && sudo rm -rf "/var/lib/apt/lists/*"
-
