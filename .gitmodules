@@ -6,4 +6,4 @@
 	url = ../../tools/shared-ros-2-packages.git
 [submodule "fast_dds_router"]
 	path = fast_dds_router
-	url = https://gitlab.hs-esslingen.de/smart-factory-grids/autonomous-systems/tools/fast-dds-router.git
+	url = ../../tools/fast-dds-router.git

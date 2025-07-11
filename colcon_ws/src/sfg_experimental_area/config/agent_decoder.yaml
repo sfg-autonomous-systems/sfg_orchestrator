@@ -1,3 +1,7 @@
 /**:
   ros__parameters:
-    .in.ffmpeg.map.h264_nvmpi: h264_cuvid
+    # For some reason CPU based decoding using h264 is faster than using
+    # GPU based decoding via h264_cuvid. I'm not entirely sure why.
+    # Perhaps this is due to the overhead of transferring the data to and
+    # from the GPU. Anyways, this is why we use h264 here.
+    .in.ffmpeg.map.h264_nvmpi: h264
