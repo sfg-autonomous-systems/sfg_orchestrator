@@ -1,8 +1,8 @@
 [submodule ".devcontainer"]
 	path = .devcontainer
 	url = ../../tools/isaac-ros-dev-container.git
-[submodule "colcon_ws/sfg_shared"]
-	path = colcon_ws/src/sfg_shared
+[submodule "colcon_ws/sfg_agent_shared"]
+	path = colcon_ws/src/sfg_agent_shared
 	url = ../../tools/shared-ros-2-packages.git
 [submodule "fast_dds_router"]
 	path = fast_dds_router
