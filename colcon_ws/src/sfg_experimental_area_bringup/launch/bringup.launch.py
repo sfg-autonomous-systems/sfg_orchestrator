@@ -11,11 +11,11 @@ local_namespace, global_namespace = get_ros_namespaces()
 
 
 def generate_launch_description():
-    experimental_area_container = ComposableNodeContainer(
+    container = ComposableNodeContainer(
         package="rclcpp_components",
         executable="component_container_mt",
         namespace=local_namespace,
-        name="experimental_area_container",
+        name=f"{package_name}_container",
         composable_node_descriptions=(
             ComposableNode(
                 package="sfg_agent",
@@ -49,14 +49,11 @@ def generate_launch_description():
                             "agent_decoder.yaml",
                         ]
                     ),
-                    {
-                        "container_name": local_namespace
-                        + "/experimental_area_container"
-                    },
+                    {"container_name": local_namespace + f"/{package_name}_container"},
                 ],
             ),
         ),
         output="screen",
     )
 
-    return launch.LaunchDescription([experimental_area_container])
+    return launch.LaunchDescription([container])
