@@ -7,6 +7,16 @@ RUN --mount=type=cache,id=apt_cache_devcontainer,target="/var/cache/apt" \
         ros-${ROS_DISTRO}-rqt-robot-monitor && \
     sudo apt -y autoremove && sudo apt clean && sudo rm -rf "/var/lib/apt/lists/"*
 
+# Install rerun.
+RUN --mount=type=cache,id=apt_cache_devcontainer,target="/var/cache/apt" \
+    sudo apt update && sudo apt install -y --no-install-recommends \
+        libgtk-3-dev \
+        libxkbcommon-x11-0 \
+        vulkan-tools && \
+    sudo apt -y autoremove && sudo apt clean && sudo rm -rf "/var/lib/apt/lists/"* && \
+    \
+    pip install \
+        rerun-sdk==0.24.1
 
 CMD "${REPOSITORY_DIRECTORY}/.devcontainer/scripts/post_start_command" && \
     source "/opt/ros/${ROS_DISTRO}/setup.bash" && \
