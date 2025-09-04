@@ -4,7 +4,7 @@
 
 #include "sfg_experimental_area_visualization/message_visualizers/message_visualizer.hpp"
 
-namespace sfg_experimental_area_visualization::message_visualizers
+namespace sfg_experimental_area_visualization::message_visualizers::plugins
 {
     class PointCloud2Visualizer : public MessageVisualizer<sensor_msgs::msg::PointCloud2>
     {

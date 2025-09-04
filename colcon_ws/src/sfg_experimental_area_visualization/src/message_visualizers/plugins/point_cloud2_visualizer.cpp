@@ -1,6 +1,8 @@
-#include "sfg_experimental_area_visualization/message_visualizers/point_cloud2_visualizer.hpp"
+#include "sfg_experimental_area_visualization/message_visualizers/plugins/point_cloud2_visualizer.hpp"
 
-namespace sfg_experimental_area_visualization::message_visualizers
+#include <rerun/archetypes/clear.hpp>
+
+namespace sfg_experimental_area_visualization::message_visualizers::plugins
 {
     void PointCloud2Visualizer::callback(const sensor_msgs::msg::PointCloud2::ConstSharedPtr &msg)
     {
@@ -43,12 +45,10 @@ namespace sfg_experimental_area_visualization::message_visualizers
 
     void PointCloud2Visualizer::clear(bool recursive)
     {
-        (void)recursive;
-
-        // ToDo: Implement this.
+        m_recording_stream.log(m_topic_names[0].c_str(), rerun::archetypes::Clear(recursive));
     }
 }
 
 #include "sfg_experimental_area_visualization/message_visualizers/message_visualizer_factory.hpp"
 
-SFG_EXPERIMENTAL_AREA_VISUALIZATION__REGISTER_MESSAGE_VISUALIZER(sfg_experimental_area_visualization::message_visualizers::PointCloud2Visualizer)
+SFG_EXPERIMENTAL_AREA_VISUALIZATION__REGISTER_MESSAGE_VISUALIZER(sfg_experimental_area_visualization::message_visualizers::plugins::PointCloud2Visualizer)

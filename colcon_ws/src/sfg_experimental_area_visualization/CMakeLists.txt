@@ -13,7 +13,6 @@ find_package(message_filters REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
 find_package(sensor_msgs REQUIRED)
-find_package(sfg_agent_msgs REQUIRED)
 find_package(sfg_utils REQUIRED)
 
 include(FetchContent)
@@ -29,11 +28,11 @@ set_target_properties(rerun_sdk PROPERTIES
 # ########################################################################################################
 sfg_utils__add_component("visualizer" "${PROJECT_NAME}::Visualizer"
   SOURCES
-  "src/message_visualizers/camera_visualizer.cpp"
   "src/message_visualizers/message_visualizer_handle.cpp"
   "src/message_visualizers/message_visualizer_base.cpp"
   "src/message_visualizers/message_visualizer_factory.cpp"
-  "src/message_visualizers/point_cloud2_visualizer.cpp"
+  "src/message_visualizers/plugins/camera_visualizer.cpp"
+  "src/message_visualizers/plugins/point_cloud2_visualizer.cpp"
   "src/visualizer.cpp"
   "src/visualizer_component.cpp"
   AMENT_DEPENDENCIES
@@ -41,7 +40,6 @@ sfg_utils__add_component("visualizer" "${PROJECT_NAME}::Visualizer"
   rclcpp
   rclcpp_components
   sensor_msgs
-  sfg_agent_msgs
   sfg_utils
   SYSTEM_DEPENDENCIES
   PRIVATE rerun_sdk

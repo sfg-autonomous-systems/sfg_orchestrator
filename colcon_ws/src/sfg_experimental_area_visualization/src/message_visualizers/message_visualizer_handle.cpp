@@ -19,15 +19,8 @@ namespace sfg_experimental_area_visualization::message_visualizers
 
     MessageVisualizerHandle::~MessageVisualizerHandle()
     {
-        try
-        {
-            m_implementation->clear();
-            m_implementation->undeclare_parameters();
-        }
-        catch (const std::exception &e)
-        {
-            // ToDo: Log exception.
-        }
+        m_implementation->clear();
+        m_implementation->undeclare_parameters();
     }
 
     void MessageVisualizerHandle::clear(bool recursive)

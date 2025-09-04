@@ -23,19 +23,4 @@ namespace sfg_experimental_area_visualization
             {{"/camera_info", "sensor_msgs/msg/CameraInfo"}, {"/image", "sensor_msgs/msg/Image"}},
             rclcpp::SensorDataQoS());
     }
-
-    void Visualizer::agent_discovery_event_callback(const sfg_agent_msgs::msg::AgentMetadata &metadata, uint8_t event_type)
-    {
-        switch (event_type)
-        {
-        case sfg_agent_msgs::msg::AgentDiscoveryEvent::DISCOVERED:
-        {
-            break;
-        }
-        case sfg_agent_msgs::msg::AgentDiscoveryEvent::LOST:
-        {
-            break;
-        }
-        }
-    }
 }

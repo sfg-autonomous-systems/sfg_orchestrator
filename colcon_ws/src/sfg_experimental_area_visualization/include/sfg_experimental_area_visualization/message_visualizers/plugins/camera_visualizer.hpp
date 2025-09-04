@@ -5,7 +5,7 @@
 
 #include "sfg_experimental_area_visualization/message_visualizers/message_visualizer.hpp"
 
-namespace sfg_experimental_area_visualization::message_visualizers
+namespace sfg_experimental_area_visualization::message_visualizers::plugins
 {
     class CameraVisualizer : public MessageVisualizer<sensor_msgs::msg::CameraInfo, sensor_msgs::msg::Image>
     {
