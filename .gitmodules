@@ -13,6 +13,6 @@
 [submodule "colcon_ws/src/sfg_go2_shared"]
 	path = colcon_ws/src/sfg_go2_shared
 	url = ../go2-shared.git
-[submodule "colcon_ws/src/sfg_rerun_bridge"]
-	path = colcon_ws/src/sfg_rerun_bridge
-	url = ../../tools/rerun-bridge.git
+[submodule "colcon_ws/src/sfg_rerun"]
+	path = colcon_ws/src/sfg_rerun
+	url = ../../tools/rerun.git
