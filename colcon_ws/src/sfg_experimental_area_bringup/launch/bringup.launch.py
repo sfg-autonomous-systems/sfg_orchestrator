@@ -27,7 +27,7 @@ def generate_launch_description() -> launch.LaunchDescription:
 
     agent_discoverer_node = ComposableNode(
         package="sfg_agent",
-        plugin="sfg_agent::AgentDiscoverer",
+        plugin="sfg_agent::Discoverer",
         namespace=local_namespace,
         parameters=[
             PathJoinSubstitution(
@@ -43,7 +43,7 @@ def generate_launch_description() -> launch.LaunchDescription:
 
     agent_decoder_node = ComposableNode(
         package="sfg_agent",
-        plugin="sfg_agent::AgentDecoder",
+        plugin="sfg_agent::Decoder",
         namespace=local_namespace,
         parameters=[
             PathJoinSubstitution(
