@@ -1,4 +1,4 @@
-FROM isaac-ros AS sfg-experimental-area
+FROM sfg-agent-devcontainer AS sfg-experimental-area
 
 RUN --mount=type=cache,id=apt_cache_devcontainer,target="/var/cache/apt" \
     sudo apt update && sudo apt install -y --no-install-recommends \
