@@ -1,5 +1,5 @@
-import launch
 import sfg_utils.launch_utils
+from launch import LaunchDescription
 from launch.substitutions import PathJoinSubstitution
 from launch_ros.actions import ComposableNodeContainer
 from launch_ros.descriptions import ComposableNode
@@ -20,9 +20,11 @@ local_namespace, global_namespace = (
 )
 
 
-def generate_launch_description() -> launch.LaunchDescription:
-    agent_nodes, agent_composable_nodes = sfg_utils.launch_utils.get_nodes(
-        "sfg_agent", "agent.launch.py"
+def generate_launch_description() -> LaunchDescription:
+    agent_launch_description_entities = (
+        sfg_utils.launch_utils.get_launch_description_entities(
+            "sfg_agent", "agent.launch.py"
+        )
     )
 
     agent_discoverer_node = ComposableNode(
@@ -59,16 +61,17 @@ def generate_launch_description() -> launch.LaunchDescription:
         ],
     )
 
-    return launch.LaunchDescription(
+    return LaunchDescription(
         [
-            *agent_nodes,
+            *agent_launch_description_entities.launch_arguments,
+            *agent_launch_description_entities.nodes,
             ComposableNodeContainer(
                 package="rclcpp_components",
                 executable="component_container_mt",
                 namespace=local_namespace,
                 name="bringup_container",
                 composable_node_descriptions=(
-                    *agent_composable_nodes,
+                    *agent_launch_description_entities.composable_nodes,
                     agent_discoverer_node,
                     agent_decoder_node,
                 ),
