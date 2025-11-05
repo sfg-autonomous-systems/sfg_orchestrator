@@ -8,16 +8,8 @@ from rospkg import get_package_name
 from sfg_utils.fqn import RosFqnBuilder, RosFqnSegment, Scope
 
 package_name = get_package_name(__file__)
-local_namespace, global_namespace = (
-    RosFqnBuilder()
-    .scope(Scope.Local)
-    .agent()
-    .build(begin=RosFqnSegment.Scope, end=RosFqnSegment.Agent),
-    RosFqnBuilder()
-    .scope(Scope.Global)
-    .agent()
-    .build(begin=RosFqnSegment.Scope, end=RosFqnSegment.Agent),
-)
+local_namespace = RosFqnBuilder().scope(Scope.Local).agent()
+global_namespace = RosFqnBuilder().scope(Scope.Global).agent()
 
 
 def generate_launch_description() -> LaunchDescription:
@@ -30,7 +22,7 @@ def generate_launch_description() -> LaunchDescription:
     agent_discoverer_node = ComposableNode(
         package="sfg_agent",
         plugin="sfg_agent::AgentDiscoverer",
-        namespace=local_namespace,
+        namespace=local_namespace.build(RosFqnSegment.Scope, RosFqnSegment.Agent),
         parameters=[
             PathJoinSubstitution(
                 [
@@ -46,7 +38,7 @@ def generate_launch_description() -> LaunchDescription:
     agent_decoder_node = ComposableNode(
         package="sfg_agent",
         plugin="sfg_agent::AgentDecoder",
-        namespace=local_namespace,
+        namespace=local_namespace.build(RosFqnSegment.Scope, RosFqnSegment.Agent),
         parameters=[
             PathJoinSubstitution(
                 [
@@ -56,7 +48,7 @@ def generate_launch_description() -> LaunchDescription:
                 ]
             ),
             {
-                "container_name": f"{local_namespace}/bringup_container",
+                "container_name": f"{local_namespace.build(RosFqnSegment.Scope, RosFqnSegment.Agent)}/bringup_container",
             },
         ],
     )
@@ -68,7 +60,9 @@ def generate_launch_description() -> LaunchDescription:
             ComposableNodeContainer(
                 package="rclcpp_components",
                 executable="component_container_mt",
-                namespace=local_namespace,
+                namespace=local_namespace.build(
+                    RosFqnSegment.Scope, RosFqnSegment.Agent
+                ),
                 name="bringup_container",
                 composable_node_descriptions=(
                     *agent_launch_description_entities.composable_nodes,
