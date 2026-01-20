@@ -23,6 +23,7 @@ def generate_launch_description() -> LaunchDescription:
         package="sfg_agent",
         plugin="sfg_agent::AgentDiscoverer",
         namespace=local_namespace.build(RosFqnSegment.Scope, RosFqnSegment.Agent),
+        name="agent_discoverer",
         parameters=[
             PathJoinSubstitution(
                 [
@@ -39,6 +40,7 @@ def generate_launch_description() -> LaunchDescription:
         package="sfg_agent",
         plugin="sfg_agent::AgentDecoder",
         namespace=local_namespace.build(RosFqnSegment.Scope, RosFqnSegment.Agent),
+        name="agent_decoder",
         parameters=[
             PathJoinSubstitution(
                 [
