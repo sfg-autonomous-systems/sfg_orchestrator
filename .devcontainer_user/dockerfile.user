@@ -17,7 +17,6 @@ RUN --mount=type=cache,id=apt_cache_devcontainer,target="/var/cache/apt" \
     \
     pip install \
         rerun-sdk==0.25.1
-
 CMD "${REPOSITORY_DIRECTORY}/.devcontainer/scripts/post_start_command" && \
     source "/opt/ros/${ROS_DISTRO}/setup.bash" && \
     cd "${REPOSITORY_DIRECTORY}/colcon_ws" && \
