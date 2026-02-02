@@ -19,3 +19,6 @@
 [submodule "colcon_ws/src/sfg_vicon_bridge"]
 	path = colcon_ws/src/sfg_vicon_bridge
 	url = ../../tools/vicon-bridge.git
+[submodule "colcon_ws/src/sfg_trajectory_planner"]
+	path = colcon_ws/src/sfg_trajectory_planner
+	url = ../../tools/trajectory-planner.git
