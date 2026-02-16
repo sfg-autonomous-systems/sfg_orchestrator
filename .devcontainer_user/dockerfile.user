@@ -38,7 +38,8 @@ RUN sudo apt update && sudo apt install -y --no-install-recommends \
         libpipewire-0.3-dev \
         libwayland-dev \
         libdecor-0-dev \
-        liburing-dev && \
+        liburing-dev \ 
+        zenity && \
     sudo apt -y autoremove && sudo apt clean && sudo rm -rf "/var/lib/apt/lists/"* && \
     \
     git clone -b "release-3.4.0" --depth 1 "https://github.com/libsdl-org/SDL.git" && \
