@@ -83,12 +83,12 @@ def generate_launch_description() -> LaunchDescription:
                     RosFqnSegment.Scope, RosFqnSegment.Agent
                 ),
                 name="bringup_container",
-                composable_node_descriptions=(
+                composable_node_descriptions=[
                     *agent_launch_description_entities.composable_nodes,
                     agent_discoverer_node,
                     agent_decoder_node,
                     vicon_bridge_node,
-                ),
+                ],
                 output="screen",
             ),
         ]
