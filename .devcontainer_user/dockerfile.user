@@ -60,6 +60,20 @@ RUN sudo apt update && sudo apt install -y --no-install-recommends \
     pip install \
         rerun-sdk==0.25.1
 
+# gltfpack
+RUN sudo apt update && sudo apt install -y --no-install-recommends \
+        unzip && \
+    sudo apt -y autoremove && sudo apt clean && sudo rm -rf "/var/lib/apt/lists/"* && \
+    \
+    wget -q "https://github.com/zeux/meshoptimizer/releases/download/v1.1/gltfpack-ubuntu.zip" && \
+    unzip "gltfpack-ubuntu.zip" -d "gltfpack" && \
+    sudo mv "gltfpack/gltfpack" "/usr/local/bin/" && \
+    rm -rf "gltfpack-ubuntu.zip" "gltfpack"
+
+RUN sudo apt update && sudo apt install -y --no-install-recommends \
+        python3-requests && \
+    sudo apt -y autoremove && sudo apt clean && sudo rm -rf "/var/lib/apt/lists/"* && \
+
 RUN sudo rm -rf "${HOME}/dependencies"
 
 WORKDIR ${WORKSPACE_DIRECTORY}
