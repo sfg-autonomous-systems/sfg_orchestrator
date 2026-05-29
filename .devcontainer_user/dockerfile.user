@@ -57,7 +57,7 @@ RUN sudo apt update && sudo apt install -y --no-install-recommends \
         vulkan-tools && \
     sudo apt -y autoremove && sudo apt clean && sudo rm -rf "/var/lib/apt/lists/"* && \
     \
-    pip install \
+    pip install --break-system-packages \
         rerun-sdk==0.25.1
 
 # gltfpack
@@ -72,7 +72,13 @@ RUN sudo apt update && sudo apt install -y --no-install-recommends \
 
 RUN sudo apt update && sudo apt install -y --no-install-recommends \
         python3-requests && \
+    sudo apt -y autoremove && sudo apt clean && sudo rm -rf "/var/lib/apt/lists/"*
+
+# URDF Visualization Setup
+RUN sudo apt update && sudo apt install -y --no-install-recommends \
+        ros-${ROS_DISTRO}-urdf-tutorial && \
     sudo apt -y autoremove && sudo apt clean && sudo rm -rf "/var/lib/apt/lists/"* && \
+    echo 'visualize_urdf() { ros2 launch urdf_tutorial display.launch.py model:="$1"; }' >> ${HOME}/.bashrc
 
 RUN sudo rm -rf "${HOME}/dependencies"
 
