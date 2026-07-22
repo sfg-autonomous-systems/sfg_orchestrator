@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>sfg_experimental_area_bringup</name>
+  <name>sfg_orchestrator_bringup</name>
   <version>0.0.0</version>
-  <description>The package responsible for orchestrating the multi robot experimental area.</description>
+  <description>The package responsible for orchestrating the multi agent experimental area.</description>
   <maintainer email="constantin.blessing@hs-esslingen.de">Constantin Blessing</maintainer>
   <license>MIT</license>
 

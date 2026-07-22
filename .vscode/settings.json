@@ -5,5 +5,4 @@
         "**/.mypy_cache": true
     },
     "docker.languageserver.formatter.ignoreMultilineInstructions": true,
-    "cmake.sourceDirectory": "/home/sfg-agent/Documents/experimental_area/.devcontainer/dependencies/isaac_ros_common/isaac_common"
 }
