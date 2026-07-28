@@ -1,9 +1,9 @@
 [submodule ".devcontainer"]
 	path = .devcontainer
-	url = ../../sfg-autonomous-systems/sfg_agent_devcontainer.git
+	url = ../sfg_agent_devcontainer.git
 [submodule "colcon_ws/src/sfg_agent_common"]
 	path = colcon_ws/src/sfg_agent_common
-	url = ../../sfg-autonomous-systems/sfg_agent_common.git
+	url = ../sfg_agent_common.git
 [submodule "colcon_ws/src/sfg_tb4_shared"]
 	path = colcon_ws/src/sfg_tb4_shared
 	url = ../sfg_tb4_shared.git
@@ -12,13 +12,13 @@
 	url = ../sfg_go2_shared.git
 [submodule "colcon_ws/src/sfg_rerun_bridge"]
 	path = colcon_ws/src/sfg_rerun_bridge
-	url = ../../sfg-autonomous-systems/sfg_rerun_bridge.git
+	url = ../sfg_rerun_bridge.git
 [submodule "colcon_ws/src/sfg_imgui_vendor"]
 	path = colcon_ws/src/sfg_imgui_vendor
-	url = ../../sfg-autonomous-systems/sfg_imgui_vendor.git
+	url = ../sfg_imgui_vendor.git
 [submodule "colcon_ws/src/sfg_vicon_bridge"]
 	path = colcon_ws/src/sfg_vicon_bridge
-	url = ../../sfg-autonomous-systems/sfg_vicon_bridge.git
+	url = ../sfg_vicon_bridge.git
 [submodule "colcon_ws/src/sfg_trajectory_planner"]
 	path = colcon_ws/src/sfg_trajectory_planner
-	url = ../../sfg-autonomous-systems/sfg_trajectory_planner.git
+	url = ../sfg_trajectory_planner.git
