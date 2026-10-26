@@ -16,9 +16,6 @@
 [submodule "colcon_ws/src/sfg_imgui_vendor"]
 	path = colcon_ws/src/sfg_imgui_vendor
 	url = ../sfg_imgui_vendor.git
-[submodule "colcon_ws/src/sfg_vicon_bridge"]
-	path = colcon_ws/src/sfg_vicon_bridge
-	url = ../sfg_vicon_bridge.git
 [submodule "colcon_ws/src/sfg_trajectory_planner"]
 	path = colcon_ws/src/sfg_trajectory_planner
 	url = ../sfg_trajectory_planner.git
